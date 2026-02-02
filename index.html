@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f0eeee, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    button {
+      font-size: 1.2rem;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #yesBtn {
+      background-color: #ff4d6d;
+      color: white;
+      margin-right: 200px;
+    }
+
+    #noBtn {
+      background-color: #ff4d6d;
+      color: white;
+      position: absolute;
+    }
+
+    #result {
+      display: none;
+      text-align: center;
+    }
+
+    #result h2 {
+      font-size: 2rem;
+      color: #141414;
+    }
+
+    #result img {
+      margin-top: 15px;
+      width: 240px;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="questionBox">
+    <h1>Type moko?</h1>
+    <button id="yesBtn">Oo</button>
+    <button id="noBtn">Hindi</button>
+  </div>
+
+  <div id="result">
+    <h2>Tagumpay HAHAHAHAHA</h2>
+    <img src="https://i.ytimg.com/vi/VkM-oBezwWo/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AHUBoAC4AOKAgwIABABGGUgXChFMA8=&rs=AOn4CLCR3A6cQq-XVVuuFJ2uymgfFZ_3Yg" width="400" height="250">
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const questionBox = document.getElementById("questionBox");
+    const result = document.getElementById("result");
+
+    
+    noBtn.style.left = "55%";
+    noBtn.style.top = "55%";
+
+    function moveButton() {
+      const maxX = window.innerWidth - noBtn.offsetWidth;
+      const maxY = window.innerHeight - noBtn.offsetHeight;
+
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    
+    noBtn.addEventListener("mouseenter", moveButton);
+
+    
+    noBtn.addEventListener("touchstart", moveButton);
+
+    yesBtn.addEventListener("click", () => {
+      questionBox.style.display = "none";
+      result.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
